@@ -1,0 +1,10 @@
+version: '3'
+services:
+  go-mobile-redirect:
+    container_name: go-mobile-redirect
+    build: .
+    environment:
+      PORT: 9000
+      REDIRECT_DATA_URL: 'https://some-url-containing-example.redirect.json'
+    ports:
+     - "9000:9000"

@@ -1,0 +1,6 @@
+{
+    "example.com": {
+        "mobile": "www.example.com",
+        "desktop": "m.example.com"
+    }
+}
