@@ -5,6 +5,6 @@ services:
     build: .
     environment:
       PORT: 9000
-      REDIRECT_DATA_URL: 'https://some-url-containing-example.redirect.json'
+      REDIRECT_DATA_URL: 'https://main-query-engine-ihzp3cadka-de.a.run.app/redirects'
     ports:
      - "9000:9000"

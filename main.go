@@ -35,12 +35,15 @@ func getEnv(key string, defaultVal string) string {
 
 func redirect(w http.ResponseWriter, r *http.Request) {
 	ua := r.Header.Get("User-Agent")
+
+	uri := r.RequestURI
+
 	host := r.Host
 	if isMobile(ua) {
-		http.Redirect(w, r, "https://"+URLRedirect[host].Mobile, 302)
+		http.Redirect(w, r, "https://"+URLRedirect[host].Mobile+uri, 302)
 		return
 	}
-	http.Redirect(w, r, "https://"+URLRedirect[host].Desktop, 302)
+	http.Redirect(w, r, "https://"+URLRedirect[host].Desktop+uri, 302)
 }
 
 func getNewestData(w http.ResponseWriter, r *http.Request) {
@@ -82,6 +85,7 @@ func initialize() {
 
 func main() {
 	setNewHost()
+	// initialize()
 
 	http.HandleFunc("/", redirect)
 	http.HandleFunc("/set-to-newest-data", getNewestData)
